@@ -1,9 +1,9 @@
 import React, { useState, useEffect, FC } from 'react'
 import { createContext } from './createContext'
 import { useLocalStorage } from './useLocalStorage'
-import { Props, Message, ShowCallback, AckCallback } from './types'
+import { OnboardContext, Message, ShowCallback, AckCallback } from './types'
 
-const [useOnboard, OnboardContextProvider] = createContext<Props>()
+const [useOnboard, OnboardContextProvider] = createContext<OnboardContext>()
 
 const useOnboardProvider = (
   messages: Array<Message>,

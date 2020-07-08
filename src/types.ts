@@ -11,7 +11,7 @@ export interface Message extends Item {
   readonly children: ReactNode
 }
 
-export interface Props {
+export interface OnboardContext {
   activeMessage: Message | null
   // Allows us to keep track of elements wrapped with OnboardElement
   // elementId allows element to be used in messages (it is the linking mechanism)
