@@ -22,7 +22,9 @@ yarn add react-onboard
 
 ## Usage
 
-Below is a full-fledged case using [react-toastify](https://github.com/fkhadra/react-toastify) for notifications and [material-ui](https://github.com/mui-org/material-ui) for component highlights. See this same example interactively on [CodeSandbox](https://codesandbox.io/s/vigilant-hill-2913t?file=/src/App.tsx).
+Try it out on [CodeSandbox](https://codesandbox.io/s/vigilant-hill-2913t?file=/src/App.tsx).
+
+Below is a simple example using [react-toastify](https://github.com/fkhadra/react-toastify) for notifications and [material-ui](https://github.com/mui-org/material-ui) for component highlights.
 
 ```tsx
 import React from 'react'
@@ -88,6 +90,23 @@ export default function App() {
 ```
 
 <img alt="example" src="https://user-images.githubusercontent.com/9855031/86202729-f490e580-bb17-11ea-9bc8-e458d5a5f51d.png">
+
+## API
+
+### OnboardProvider
+
+| Prop               | Type                                                                  | Default | Description                                                                                                          |
+| ------------------ | --------------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------- |
+| messages           | Array<{id: string, elementIds?: Array\<string>, children: ReactNode}> | -       | Onboard messages optionally highlighting related elements                                                            |
+| showCallback       | ({messageId: string, children: ReactNode, onAck: () => void}) => void | -       | Function to call when a message is made active (This is where you actually show the message how you want)            |
+| ackCallback        | ({messageId: string}) => void                                         | -       | Function to call when a message is acknowledged (This is where you hide the message you previously showed)           |
+| HighlightComponent | FC                                                                    | -       | A functional component that is wrapped around and draws visual attention to elements that are related to the message |
+
+### OnboardElement
+
+| Prop | Type   | Default | Description                                                                                                       |
+| ---- | ------ | ------- | ----------------------------------------------------------------------------------------------------------------- |
+| id   | string | -       | A unique identifier for the element to be used in the `elementIds` field of related messages in `OnboardProvider` |
 
 ## License
 
