@@ -1,11 +1,15 @@
 import React, { useState, useEffect, cloneElement, FC } from 'react'
 import { useOnboard } from './OnboardProvider'
-import { Item } from './types'
+import { OnboardElementProps } from './types'
 
 /**
  * Wrapper for element to be highlighted with badge during an onboard message
  */
-export const OnboardElement: FC<Item> = ({ id, children }) => {
+export const OnboardElement: FC<OnboardElementProps> = ({
+  id,
+  children,
+  ackOnClick = true
+}) => {
   const [isActive, setIsActive] = useState(false)
   const {
     onElementRender,
@@ -41,9 +45,11 @@ export const OnboardElement: FC<Item> = ({ id, children }) => {
   return (
     <HighlightComponent
       onClick={() => {
-        dismiss()
-        window.clearTimeout(dismissTimeout)
-        setDismissTimeout(undefined)
+        if (ackOnClick) {
+          dismiss()
+          window.clearTimeout(dismissTimeout)
+          setDismissTimeout(undefined)
+        }
       }}
       onMouseOver={() => {
         if (dismissTimeout === undefined)

@@ -32,3 +32,7 @@ export type ShowCallback = ({
 }) => void
 
 export type AckCallback = ({ messageId }: { messageId: string }) => void
+
+export interface OnboardElementProps extends Item {
+  ackOnClick?: boolean
+}
