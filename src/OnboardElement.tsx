@@ -8,7 +8,8 @@ import { OnboardElementProps } from './types'
 export const OnboardElement: FC<OnboardElementProps> = ({
   id,
   children,
-  ackOnClick = true
+  ackOnClick = true,
+  ackOnMouseOver = 1000
 }) => {
   const [isActive, setIsActive] = useState(false)
   const {
@@ -52,12 +53,14 @@ export const OnboardElement: FC<OnboardElementProps> = ({
         }
       }}
       onMouseOver={() => {
-        if (dismissTimeout === undefined)
-          setDismissTimeout(window.setTimeout(dismiss, 1000))
+        if (ackOnMouseOver > 0 && dismissTimeout === undefined)
+          setDismissTimeout(window.setTimeout(dismiss, ackOnMouseOver))
       }}
       onMouseLeave={() => {
-        window.clearTimeout(dismissTimeout)
-        setDismissTimeout(undefined)
+        if (ackOnMouseOver > 0) {
+          window.clearTimeout(dismissTimeout)
+          setDismissTimeout(undefined)
+        }
       }}
       style={{ visibility: isActive ? 'initial' : 'hidden' }}
     >

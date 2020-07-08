@@ -104,10 +104,11 @@ export default function App() {
 
 ### OnboardElement
 
-| Prop       | Type    | Default | Description                                                                                                       |
-| ---------- | ------- | ------- | ----------------------------------------------------------------------------------------------------------------- |
-| id         | string  | -       | A unique identifier for the element to be used in the `elementIds` field of related messages in `OnboardProvider` |
-| ackOnClick | boolean | true    | Whether to allow a related message to be acknowledged by the user clicking the element                            |
+| Prop           | Type    | Default | Description                                                                                                       |
+| -------------- | ------- | ------- | ----------------------------------------------------------------------------------------------------------------- |
+| id             | string  | -       | A unique identifier for the element to be used in the `elementIds` field of related messages in `OnboardProvider` |
+| ackOnClick     | boolean | true    | Whether to allow a related message to be acknowledged by the user clicking the element                            |
+| ackOnMouseOver | number  | 1000    | Number of milliseconds to acknowledge message after user has hovered on message for (0 to disable)                |
 
 ## License
 
